@@ -667,3 +667,225 @@ li {
   opacity: 1;
 }
 
+/* NEW COMPONENTS */
+.web-demo {
+  margin-top: 2rem;
+  background: var(--bg-light);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #e6e6e6;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+.demo-label {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: var(--text-heading);
+  opacity: 0.7;
+}
+
+.demo-button {
+  margin-top: 1rem;
+  background: var(--accent-primary);
+  color: white;
+  border: none;
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 600;
+  display: inline-block;
+  box-shadow: 0 6px 16px rgba(36, 74, 213, 0.25);
+}
+
+.demo-picker {
+  margin-top: 1rem;
+  background: var(--bg-alt);
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+.demo-picker-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+  color: var(--text-heading);
+}
+
+.demo-date-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.4rem;
+}
+
+.demo-date {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  text-align: center;
+  padding: 0.35rem 0;
+  font-size: 0.85rem;
+  color: var(--text-main);
+}
+
+.demo-date.muted {
+  color: #b0b0b0;
+  background: #f5f5f5;
+}
+
+.demo-date.selected {
+  background: var(--accent-green);
+  border-color: var(--accent-green);
+  color: #1b2b1b;
+  font-weight: 600;
+}
+
+.simple-examples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+}
+
+.simple-examples span {
+  background: var(--bg-light);
+  border: 1px solid #e5e5e5;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+}
+
+.raci-table {
+  margin-top: 1rem;
+  background: var(--bg-light);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  overflow: hidden;
+}
+
+.raci-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr 1fr;
+  gap: 1rem;
+  padding: 1.4rem 2rem;
+  border-bottom: 1px solid #eee;
+  font-size: 1.05rem;
+}
+
+.raci-row:last-child {
+  border-bottom: none;
+}
+
+.raci-head {
+  background: var(--bg-panel);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--text-heading);
+}
+
+.case-box {
+  margin-top: 2rem;
+  background: var(--bg-light);
+  border-left: 4px solid var(--accent-primary);
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+}
+
+.triage-flow {
+  display: flex;
+  align-items: stretch;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.triage-step {
+  flex: 1;
+  background: var(--bg-panel);
+  padding: 2rem;
+  border-radius: 12px;
+  border-top: 4px solid var(--accent-primary);
+}
+
+.triage-step.alt {
+  border-top-color: var(--accent-green);
+}
+
+.triage-label {
+  display: block;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--text-heading);
+  margin-bottom: 0.8rem;
+}
+
+.triage-connector {
+  width: 80px;
+  position: relative;
+}
+
+.triage-connector::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--accent-primary);
+}
+
+.triage-connector::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid var(--accent-primary);
+  border-right: 2px solid var(--accent-primary);
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.decision-box {
+  margin-top: 1.5rem;
+  background: var(--bg-panel);
+  border-left: 4px solid var(--accent-green);
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.summary-item {
+  background: var(--bg-panel);
+  border-radius: 12px;
+  padding: 2rem;
+  border-left: 4px solid var(--accent-cyan);
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.summary-item strong {
+  font-size: 1.4rem;
+}
+
+.summary-placeholder {
+  font-size: 1.1rem;
+  color: rgba(6, 11, 40, 0.65);
+  font-style: italic;
+}
+
+.slide-definitions .slide-content {
+  padding-top: 12vh;
+}
+

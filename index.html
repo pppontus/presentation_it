@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tekniska Verken – Digital Presentationsmall</title>
+    <title>Från Formulär till Kundflöden - Tekniska Verken</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,266 +31,211 @@
         <div class="nav-dot" data-slide="5"></div>
         <div class="nav-dot" data-slide="6"></div>
         <div class="nav-dot" data-slide="7"></div>
-        <div class="nav-dot" data-slide="8"></div>
-        <div class="nav-dot" data-slide="9"></div>
-        <div class="nav-dot" data-slide="10"></div>
-        <div class="nav-dot" data-slide="11"></div>
     </nav>
 
     <main class="scroll-container">
-        <!-- Slide 1: Titel & löfte -->
+        <!-- Slide 1: Intro -->
         <section class="slide type-a dark" id="slide-0">
             <div class="topographic-pattern"></div>
             <div class="slide-content">
                 <div class="journey-line"></div>
-                <h1 class="fade-up">Behovs- och förmågeanalys</h1>
-                <p class="tagline fade-up delay-100">Kundrelation, kundkommunikation och kundresor</p>
-                <p class="fade-up delay-200">Vi stärker förmågan att arbeta kundcentrerat, datadrivet och samordnat.</p>
+                <h1 class="fade-up">Vi löser för ofta olika behov med samma formulär.</h1>
+                <p class="tagline fade-up delay-100">Från "Formulär" till Kundflöden - 60 min - Mål: besluta om definitioner, ansvar och samordning</p>
+                <ul>
+                    <li class="fade-up delay-200"><img src="resources/icon_white.svg" class="bullet-icon" alt=""> Otydligt ägarskap (vem "äger" flyttflödet?)</li>
+                    <li class="fade-up delay-300"><img src="resources/icon_white.svg" class="bullet-icon" alt=""> Risk för teknisk skuld och dubbelarbete (IT bygger vs redaktör bygger)</li>
+                </ul>
             </div>
         </section>
 
-        <!-- Slide 2: Varför nu? -->
-        <section class="slide type-b light" id="slide-1">
+        <!-- Slide 2: Definitioner -->
+        <section class="slide type-b light slide-definitions" id="slide-1">
             <div class="slide-content">
-                <h2 class="fade-up">Varför nu?</h2>
+                <h2 class="fade-up">Definitioner - vad är vad?</h2>
                 <div class="comparison-container fade-up delay-100">
                     <div class="comparison-box">
-                        <h3>Utmaning idag</h3>
+                        <h3>Spår A: Applikationsflöden</h3>
                         <ul>
-                            <li class="fade-up delay-200">Kundresor hanteras ofta styckvis</li>
-                            <li class="fade-up delay-300">Kommunikation och kanaler är inte fullt samordnade</li>
-                            <li class="fade-up delay-400">Data finns, men används inte konsekvent</li>
+                            <li>Kräver integration (API/bakomsystem)</li>
+                            <li>Hanterar affärskritisk data (avtal, flytt)</li>
+                            <li>Ofta inloggat läge (men inte alltid)</li>
                         </ul>
+                        <div class="web-demo">
+                            <div class="demo-label">Exempel i webbform</div>
+                            <button class="demo-button" type="button">Hämta min gran</button>
+                            <div class="demo-picker">
+                                <div class="demo-picker-title">Välj datum</div>
+                                <div class="demo-date-grid">
+                                    <span class="demo-date muted">11</span>
+                                    <span class="demo-date">12</span>
+                                    <span class="demo-date">13</span>
+                                    <span class="demo-date">14</span>
+                                    <span class="demo-date">15</span>
+                                    <span class="demo-date selected">16</span>
+                                    <span class="demo-date">17</span>
+                                    <span class="demo-date">18</span>
+                                    <span class="demo-date">19</span>
+                                    <span class="demo-date">20</span>
+                                    <span class="demo-date">21</span>
+                                    <span class="demo-date">22</span>
+                                    <span class="demo-date">23</span>
+                                    <span class="demo-date muted">24</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="comparison-box alt fade-up delay-200">
-                        <h3>Målet</h3>
-                        <p>Gemensam riktning för kundvärde, beslut och förmågor</p>
+                    <div class="comparison-box alt">
+                        <h3>Spår B: Redaktionella formulär</h3>
+                        <ul>
+                            <li>Ingen eller liten integration (skickar mail/skapar ärende)</li>
+                            <li>Enkel datainsamling</li>
+                            <li>Redaktörsstyrt</li>
+                        </ul>
+                        <div class="simple-examples">
+                            <span>Intresseanmälan</span>
+                            <span>Kontakta oss</span>
+                            <span>Enkel felanmälan</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Slide 3: Syftet -->
+        <!-- Slide 3: RACI -->
         <section class="slide type-c light" id="slide-2">
             <div class="slide-content">
-                <h2 class="fade-up">Uppdragets syfte</h2>
-                <p class="fade-up delay-100" style="font-size: 2rem; margin-bottom: 3rem;">Att ur ett affärs- och kundperspektiv identifiera värden, beslut och förmågor.</p>
-                <div class="step-container">
-                    <div class="step-item fade-up delay-200">
-
-                        <span class="step-number">1</span>
-                        <div class="step-content">
-                            <strong>Kundvärde</strong>
-                            <p style="font-size: 1.1rem;">Vilket värde ska skapas för kund och affär?</p>
-                        </div>
+                <h2 class="fade-up">Ansvarsmatris (RACI) - vem gör vad?</h2>
+                <div class="raci-table fade-up delay-100">
+                    <div class="raci-row raci-head">
+                        <div>Typ av flöde</div>
+                        <div>Kravställare/UX</div>
+                        <div>Bygg/Teknik</div>
+                        <div>Förvaltning</div>
                     </div>
-                    <div class="step-item fade-up delay-300">
-                        <span class="step-number">2</span>
-                        <div class="step-content">
-                            <strong>Beslut</strong>
-                            <p style="font-size: 1.1rem;">Vilka beslut måste bli bättre än i dag?</p>
-                        </div>
+                    <div class="raci-row">
+                        <div>Applikationsflöde</div>
+                        <div>Digital strateg/UX + PO</div>
+                        <div>Kundportalsteamet/IT</div>
+                        <div>PO Kundportal</div>
                     </div>
-                    <div class="step-item fade-up delay-400">
-                        <span class="step-number">3</span>
-                        <div class="step-content">
-                            <strong>Förmågor</strong>
-                            <p style="font-size: 1.1rem;">Vilka förmågor krävs för att möjliggöra detta?</p>
-                        </div>
+                    <div class="raci-row">
+                        <div>Redaktionellt</div>
+                        <div>Redaktör/Verksamhet</div>
+                        <div>Webbredaktör (CMS)</div>
+                        <div>Webbansvarig</div>
                     </div>
+                </div>
+                <div class="case-box fade-up delay-200">
+                    <strong>Case: Bixias avtalsflöde</strong>
+                    <p>Bixia har kravställt mot Ida och därefter till mig, men ägarskapet för frågan känns utspritt. Pontus tar fram prototyp och UX-krav (kundperspektivet). Kristoffer/Mathias (PO) tar över kravbilden, prioriterar i backlog och ansvarar för teknisk implementation (Vue/ny plattform).</p>
                 </div>
             </div>
         </section>
 
-        <!-- Slide 4: Vad uppdraget fokuserar på -->
+        <!-- Slide 4: Triage -->
         <section class="slide type-b light" id="slide-3">
             <div class="slide-content">
-                <h2 class="fade-up">Fokusområden</h2>
-                <div class="grid-2x2">
-                    <div class="focus-card fade-up delay-100">
-                        <img src="resources/icon_blue.svg" alt="Resa">
-                        <div>
-                            <strong>Kundresor</strong>
-                            <p style="font-size: 1rem;">Centrala kundresor och kundögonblick</p>
-                        </div>
+                <h2 class="fade-up">"Triage" - hur sorterar vi inkommande behov?</h2>
+                <div class="triage-flow fade-up delay-100">
+                    <div class="triage-step">
+                        <span class="triage-label">Nuläge</span>
+                        <p>Beställare går direkt till den de känner (webbteamet eller IT).</p>
                     </div>
-                    <div class="focus-card fade-up delay-200">
-                        <img src="resources/icon_blue.svg" alt="Mål">
-                        <div>
-                            <strong>Affärsmål</strong>
-                            <p style="font-size: 1rem;">Kopplat till relation och lojalitet</p>
-                        </div>
-                    </div>
-                    <div class="focus-card fade-up delay-300">
-                        <img src="resources/icon_blue.svg" alt="Data">
-                        <div>
-                            <strong>Insikter</strong>
-                            <p style="font-size: 1rem;">Behov av data och beslutsstöd</p>
-                        </div>
-                    </div>
-                    <div class="focus-card fade-up delay-400">
-                        <img src="resources/icon_blue.svg" alt="Förmåga">
-                        <div>
-                            <strong>Verksamhet</strong>
-                            <p style="font-size: 1rem;">Förmågor oberoende av teknik</p>
-                        </div>
+                    <div class="triage-connector" aria-hidden="true"></div>
+                    <div class="triage-step alt">
+                        <span class="triage-label">Börläge</span>
+                        <p>En gemensam ingång eller avstämningspunkt som styr rätt.</p>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Slide 5: Vad uppdraget inte är -->
-        <section class="slide type-b light" id="slide-4">
-            <div class="slide-content">
-                <div class="exclusion-box fade-up">
-                    <img src="resources/icon_blue.svg" class="stop-icon" style="filter: grayscale(1) opacity(0.5);">
-                    <h2>Vad uppdraget inte är</h2>
-                    <div class="grid-2">
-                        <div>
-                            <h3 style="color: #d00;">Ingår inte</h3>
-                            <ul style="margin-top: 1rem;">
-                                <li>Systemval (CRM, MA, CDP m.m.)</li>
-                                <li>Teknisk arkitektur</li>
-                                <li>Upphandlingsunderlag</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3>Varför?</h3>
-                            <p>För att säkra samsyn kring behov och värde, innan "hur" diskuteras.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Slide 6: Vad är en förmåga? -->
-        <section class="slide type-c light" id="slide-5">
-            <div class="slide-content">
-                <h2 class="fade-up">Vad är en förmåga?</h2>
-                <p class="fade-up delay-100" style="margin-bottom: 2rem;">Det handlar om <em>vad</em> vi behöver kunna göra, oavsett teknisk lösning.</p>
-                <div class="capability-grid">
-                    <div class="cap-card fade-up delay-100">
-                        <strong>Målgruppsstyrning</strong>
-                        <p style="font-size: 1rem;">Relevans över alla kanaler</p>
-                    </div>
-                    <div class="cap-card fade-up delay-200">
-                        <strong>End-to-end stöd</strong>
-                        <p style="font-size: 1rem;">Stöd för prioriterade kundresor</p>
-                    </div>
-                    <div class="cap-card fade-up delay-300">
-                        <strong>Beslutsstöd</strong>
-                        <p style="font-size: 1rem;">Vad fungerar, för vem och varför</p>
-                    </div>
-                    <div class="cap-card fade-up delay-400">
-                        <strong>Styrning</strong>
-                        <p style="font-size: 1rem;">Regler, ansvar och prioritering</p>
-                    </div>
-                </div>
-                <p class="small-note fade-up delay-500">Förmågor beskrivs så att flera tekniska realiseringar är möjliga.</p>
-            </div>
-        </section>
-
-        <!-- Slide 7: Projektledarens uppdrag -->
-        <section class="slide type-b light" id="slide-6">
-            <div class="slide-content">
-                <h2>Projektledarens uppdrag</h2>
-                <div class="grid-2">
-                    <div class="col-text">
+                <div class="grid-2 triage-questions fade-up delay-200">
+                    <div>
+                        <h3>Frågor att lösa nu</h3>
                         <ul>
-                            <li class="fade-up delay-100"><img src="resources/icon_blue.svg" class="bullet-icon"> Leda workshops & intervjuer</li>
-                            <li class="fade-up delay-200"><img src="resources/icon_blue.svg" class="bullet-icon"> Kartlägga centrala kundresor</li>
-                            <li class="fade-up delay-300"><img src="resources/icon_blue.svg" class="bullet-icon"> Definiera kanalstrategi</li>
-                            <li class="fade-up delay-400"><img src="resources/icon_blue.svg" class="bullet-icon"> Identifiera beslutspunkter</li>
-                            <li class="fade-up delay-500"><img src="resources/icon_blue.svg" class="bullet-icon"> Definiera verksamhetsförmågor</li>
+                            <li><img src="resources/icon_blue.svg" class="bullet-icon" alt=""> Vem tar emot bollen när verksamheten säger "vi behöver ett formulär"?</li>
+                            <li><img src="resources/icon_blue.svg" class="bullet-icon" alt=""> Har vi mandat att säga "nej, detta ska in i portalen"?</li>
                         </ul>
                     </div>
+                    <div class="decision-box">
+                        Förslag till beslut: Inkomna krav på kundinteraktioner går till PL, som avgör om behovet ska utvecklas till ett applikationsflöde eller byggas som ett redaktionellt formulär.
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <!-- Slide 5: Migrering -->
+        <section class="slide type-c light" id="slide-4">
+            <div class="slide-content">
+                <h2 class="fade-up">Det gamla berget (migrering och städning)</h2>
+                <div class="grid-2 fade-up delay-100">
                     <div class="col-image">
                         <div class="real-image-container">
-                            <img src="resources/page042_img08.jpeg" alt="Activities" class="slide-image">
+                            <img src="resources/page042_img08.jpeg" alt="Legacy-formulär" class="slide-image">
                         </div>
                     </div>
+                    <div class="col-text">
+                        <ul>
+                            <li><img src="resources/icon_blue.svg" class="bullet-icon" alt=""> Formulär i Lime och gamla Optimizely</li>
+                            <li><img src="resources/icon_blue.svg" class="bullet-icon" alt=""> Kopplingar och flöden: e-post, ärendeskapande, integrationer</li>
+                            <li><img src="resources/icon_blue.svg" class="bullet-icon" alt=""> Övergång till ny externwebb</li>
+                        </ul>
+                        <div class="decision-box">Beslut som krävs: Vem projektleder städningen och migreringen? Det kan inte vara "alla och ingen".</div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Slide 8: Arbetssätt -->
-        <section class="slide type-c light" id="slide-7">
+        <!-- Slide 6: Samordning mot IT -->
+        <section class="slide type-b light" id="slide-5">
             <div class="slide-content">
-                <h2 class="fade-up">Principer & Arbetssätt</h2>
-                <div class="process-pila">
-                    <div class="process-block fade-up delay-100">
-                        <strong>Behovsdrivet</strong>
-                        <p style="font-size: 1rem;">Vi utgår från värde och behov, inte systembegränsningar.</p>
+                <h2 class="fade-up">Samordning mot IT</h2>
+                <div class="comparison-container fade-up delay-100">
+                    <div class="comparison-box">
+                        <h3>Applikationsflöden</h3>
+                        <ul>
+                            <li>Går via PO:s backlog (DevOps)</li>
+                            <li>Ansvaras av produktteamet/IT</li>
+                        </ul>
                     </div>
-                    <div class="process-block fade-up delay-200">
-                        <strong>Pedagogiskt</strong>
-                        <p style="font-size: 1rem;">Dokumentation som kan förankras i hela organisationen.</p>
+                    <div class="comparison-box alt">
+                        <h3>Redaktionella formulär</h3>
+                        <ul>
+                            <li>Hanteras av webbteamet</li>
+                            <li>Behöver inte belasta IT-backlog</li>
+                            <li>Gäller så länge ingen integration krävs</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Slide 9: Leverabler -->
-        <section class="slide type-b light" id="slide-8">
+        <!-- Slide 7: Summering -->
+        <section class="slide type-b light" id="slide-6">
             <div class="slide-content">
-                <h2>Leverabler</h2>
-                <div class="checklist">
-                    <div class="check-item">Prioriterade kundresor</div>
-                    <div class="check-item">Affärs- och kundvärden</div>
-                    <div class="check-item">Kanalprinciper</div>
-                    <div class="check-item">Centrala beslut</div>
-                    <div class="check-item">Prioriterad förmågekarta</div>
-                    <div class="check-item">Rekommendationer</div>
+                <h2 class="fade-up">Summering och beslut</h2>
+                <div class="summary-grid fade-up delay-100">
+                    <div class="summary-item">
+                        <strong>Definitionen</strong>
+                        <p class="summary-placeholder">En integration = applikationsflöde</p>
+                    </div>
+                    <div class="summary-item">
+                        <strong>Ansvar Bixia-flödet</strong>
+                        <p class="summary-placeholder">Pontus UX - PO bygg</p>
+                    </div>
+                    <div class="summary-item">
+                        <strong>Triage-funktion</strong>
+                        <p class="summary-placeholder">Hur inkommande behov sorteras</p>
+                    </div>
+                    <div class="summary-item">
+                        <strong>Legacy-ansvarig</strong>
+                        <p class="summary-placeholder">Vem städar gamla formulär?</p>
+                    </div>
                 </div>
+                <p class="small-note fade-up delay-200">Fylls i live under mötets sista 10 minuter.</p>
             </div>
         </section>
 
-        <!-- Slide 10: Röd tråd -->
-        <section class="slide type-a dark" id="slide-9">
-            <div class="topographic-pattern" style="opacity: 0.1;"></div>
-            <div class="slide-content">
-                <h2 class="fade-up">Den röda tråden</h2>
-                <div class="chain-container fade-up delay-100">
-
-                    <div class="chain-item">Kundresor</div>
-                    <div class="chain-item">Värden</div>
-                    <div class="chain-item">Beslut</div>
-                    <div class="chain-item">Förmågor</div>
-                    <div class="chain-item">Prioritering</div>
-                </div>
-                <p class="small-note fade-up delay-300" style="margin-top: 3rem;">Vi börjar med kund och affär och slutar i en prioriterad karta.</p>
-            </div>
-        </section>
-
-        <!-- Slide 11: Nästa fas -->
-        <section class="slide type-b light" id="slide-10">
-            <div class="slide-content">
-                <h2>Exempel på nästa fas</h2>
-                <div class="grid-2x2">
-                    <div class="cap-card" style="background: var(--bg-alt);">
-                        <strong>Realisering</strong>
-                        <p style="font-size: 0.9rem;">Befintliga eller nya system</p>
-                    </div>
-                    <div class="cap-card" style="background: var(--bg-alt);">
-                        <strong>Governance</strong>
-                        <p style="font-size: 0.9rem;">Ansvar för data och regler</p>
-                    </div>
-                    <div class="cap-card" style="background: var(--bg-alt);">
-                        <strong>Roadmap</strong>
-                        <p style="font-size: 0.9rem;">Införandeplan över tid</p>
-                    </div>
-                    <div class="cap-card" style="background: var(--bg-alt);">
-                        <strong>Upphandling</strong>
-                        <p style="font-size: 0.9rem;">Genomförandepartner</p>
-                    </div>
-                </div>
-                <p class="small-note">Tekniska val görs först efter denna analysfase.</p>
-            </div>
-        </section>
-
-        <!-- Slide 12: Avslut (Logo Only) -->
-        <section class="slide type-a dark final-slide" id="slide-11">
+        <!-- Slide 8: Avslut (Logo Only) -->
+        <section class="slide type-a dark final-slide" id="slide-7">
             <div class="slide-content centered-content">
                 <img src="resources/logo_white.svg" class="final-logo" alt="Tekniska Verken">
             </div>

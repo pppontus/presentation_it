@@ -222,8 +222,46 @@ li {
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 10px;
   z-index: 100;
+  padding: 0.7rem 0.9rem;
+  border-radius: 16px;
+  background: transparent;
+  transition: background-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+  --nav-panel-bg: rgba(255, 255, 255, 0.96);
+  --nav-panel-shadow: 0 12px 26px rgba(0,0,0,0.18);
+  --nav-label-text: var(--text-heading);
+}
+
+.side-nav:hover,
+.side-nav:focus-within {
+  background: var(--nav-panel-bg);
+  box-shadow: var(--nav-panel-shadow);
+  transform: translateY(-50%) translateX(-12px);
+}
+
+.side-nav.dark-mode {
+  --nav-panel-bg: rgba(255, 255, 255, 0.92);
+  --nav-panel-shadow: 0 14px 30px rgba(0,0,0,0.35);
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: transparent;
+  border: none;
+  color: inherit;
+  padding: 0.1rem 0.2rem;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-body);
+}
+
+.nav-item:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+  border-radius: 999px;
 }
 
 .nav-dot {
@@ -231,24 +269,48 @@ li {
   height: 10px;
   border-radius: 50%;
   border: 1px solid currentColor;
-  opacity: 0.4;
-  transition: all 0.3s ease;
-  cursor: pointer;
+  opacity: 0.45;
+  flex-shrink: 0;
+  transition: opacity 0.2s ease, background-color 0.2s ease;
 }
 
-.nav-dot.active {
+.nav-item.active .nav-dot {
   opacity: 1;
   background-color: currentColor;
-  transform: scale(1.3);
 }
 
-/* DARK MODE LOGIC FOR DOTS */
-.dark-mode .nav-dot {
+.nav-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--nav-label-text);
+  white-space: nowrap;
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateX(6px);
+  transition: max-width 0.25s ease, opacity 0.2s ease, transform 0.25s ease;
+}
+
+.side-nav:hover .nav-label,
+.side-nav:focus-within .nav-label {
+  max-width: 140px;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* DARK/LIGHT MODE LOGIC */
+.dark-mode .nav-item {
   color: var(--text-on-dark);
 }
 
-.light-mode .nav-dot {
+.light-mode .nav-item {
   color: var(--bg-dark);
+}
+
+.side-nav:hover .nav-item,
+.side-nav:focus-within .nav-item {
+  color: var(--text-heading);
 }
 
 /* GRID */
@@ -887,5 +949,104 @@ li {
 
 .slide-definitions .slide-content {
   padding-top: 12vh;
+}
+
+/* NEW: UPDATED DECK COMPONENTS */
+.intro-note {
+  font-size: 1.6rem;
+  max-width: 900px;
+  margin-bottom: 1.5rem;
+}
+
+.slide-conclusion {
+  margin-top: 2rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-heading);
+}
+
+.type-a .slide-conclusion {
+  color: var(--text-on-dark);
+}
+
+.quote-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.quote-card {
+  background: var(--bg-panel);
+  padding: 1.8rem 2rem;
+  border-radius: 14px;
+  font-size: 1.15rem;
+  line-height: 1.5;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+  position: relative;
+}
+
+.quote-card::before {
+  content: "“";
+  position: absolute;
+  top: 12px;
+  left: 16px;
+  font-size: 2.5rem;
+  color: rgba(0,0,0,0.12);
+  font-family: var(--font-heading);
+}
+
+.roadmap-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.roadmap-card {
+  background: var(--bg-panel);
+  padding: 2.5rem 2.2rem;
+  border-radius: 16px;
+  border-top: 6px solid var(--accent-primary);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.06);
+}
+
+.roadmap-card:nth-child(2) { border-top-color: var(--accent-green); }
+.roadmap-card:nth-child(3) { border-top-color: var(--accent-cyan); }
+
+.roadmap-card h3 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--text-heading);
+}
+
+.roadmap-effect {
+  display: block;
+  margin-top: 1.2rem;
+  font-weight: 600;
+  color: var(--text-heading);
+}
+
+.closing-line {
+  margin-top: 2.5rem;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-on-dark);
+}
+
+@media (max-width: 1200px) {
+  .quote-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .roadmap-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .quote-grid {
+    grid-template-columns: 1fr;
+  }
 }
 

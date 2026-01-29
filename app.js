@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const container = document.querySelector('.scroll-container');
     const slides = document.querySelectorAll('.slide');
-    const navDots = document.querySelectorAll('.nav-dot');
+    const navItems = document.querySelectorAll('.nav-item');
     const mainHeader = document.querySelector('.main-header'); // Selected entire header
     const logoContainer = document.getElementById('main-logo');
     const sideNav = document.querySelector('.side-nav');
@@ -31,8 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
         currentSlideIndex = index;
 
         // Update Dots active state
-        navDots.forEach(dot => dot.classList.remove('active'));
-        if(navDots[index]) navDots[index].classList.add('active');
+        navItems.forEach(item => item.classList.remove('active'));
+        if (navItems[index]) navItems[index].classList.add('active');
 
         // Hide header logo on final slide
         if (index === slides.length - 1) {
@@ -71,9 +71,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Dot Navigation ---
-    navDots.forEach(dot => {
-        dot.addEventListener('click', () => {
-            const index = parseInt(dot.getAttribute('data-slide'));
+    navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const index = parseInt(item.getAttribute('data-slide'));
             scrollToSlide(index);
         });
     });

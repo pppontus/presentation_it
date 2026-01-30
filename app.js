@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const deviceCycleSlide = document.querySelector('.device-cycle');
     const deviceCycleItems = deviceCycleSlide ? Array.from(deviceCycleSlide.querySelectorAll('.device-cycle-item')) : [];
     let deviceCycleIndex = 0;
-    let deviceCycleLock = false;
     const animDurationMs = getAnimationDurationMs();
 
     if (deviceCycleItems.length) {
@@ -87,29 +86,45 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function transitionDeviceCycle(nextIndex, direction) {
-        if (!deviceCycleItems.length || deviceCycleLock) return false;
+        if (!deviceCycleItems.length) return false;
         if (nextIndex < 0 || nextIndex >= deviceCycleItems.length || nextIndex === deviceCycleIndex) return false;
 
-        deviceCycleLock = true;
         const currentItem = deviceCycleItems[deviceCycleIndex];
         const nextItem = deviceCycleItems[nextIndex];
 
-        const enterShift = direction === 'up' ? 'calc(-1 * var(--cycle-shift))' : 'var(--cycle-shift)';
-        nextItem.style.setProperty('--enter-shift', enterShift);
-        nextItem.classList.remove('is-exit-up', 'is-exit-down', 'is-hidden');
-        nextItem.classList.remove('is-active');
+        // 1. Prepare Start Position
+        // We set the "Enter From" class while "is-hidden" is still present.
+        // "is-hidden" ensures transition is disabled (none), so the jump to start pos is instant.
+        nextItem.classList.remove('enter-from-top', 'enter-from-bottom'); 
+        if (direction === 'up') {
+             nextItem.classList.add('enter-from-top');
+        } else {
+             nextItem.classList.add('enter-from-bottom');
+        }
+
+        // Remove old exit states causing conflicts, but KEEP is-hidden for now
+        nextItem.classList.remove('is-exit-up', 'is-exit-down');
+        nextItem.classList.remove('is-active'); // Should already be gone, but safety
+        
+        // 2. Force Reflow (Instant Snap to Start Pos)
         void nextItem.offsetHeight;
 
+        // 3. Enable Animation & Transition
+        nextItem.classList.remove('is-hidden'); // Unblocks transition
+        
+        // 4. Animate to End Pos
         currentItem.classList.remove('is-active');
         currentItem.classList.add(direction === 'up' ? 'is-exit-down' : 'is-exit-up');
         nextItem.classList.add('is-active');
 
         deviceCycleIndex = nextIndex;
         window.setTimeout(() => {
-            currentItem.classList.remove('is-exit-up', 'is-exit-down');
-            currentItem.classList.add('is-hidden');
-            currentItem.style.removeProperty('--enter-shift');
-            deviceCycleLock = false;
+            // Cleanup
+            if (!currentItem.classList.contains('is-active')) {
+                currentItem.classList.remove('is-exit-up', 'is-exit-down');
+                currentItem.classList.add('is-hidden');
+                currentItem.classList.remove('enter-from-top', 'enter-from-bottom');
+            }
         }, animDurationMs + 50);
 
         return true;
@@ -119,7 +134,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!deviceCycleSlide || !deviceCycleItems.length) return false;
         const cycleSlideIndex = parseInt(deviceCycleSlide.getAttribute('id').split('-')[1], 10);
         if (currentSlideIndex !== cycleSlideIndex) return false;
+
         const nextIndex = direction === 'down' ? deviceCycleIndex + 1 : deviceCycleIndex - 1;
+        
+        // If we are at the start or end, return false to let the event bubble (allowing scroll to next/prev slide)
+        if (nextIndex < 0 || nextIndex >= deviceCycleItems.length) return false;
+
         return transitionDeviceCycle(nextIndex, direction);
     }
 

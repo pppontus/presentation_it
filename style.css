@@ -445,7 +445,7 @@ li {
   position: relative;
   width: 100%;
   height: clamp(460px, 68vh, 820px);
-  overflow: hidden;
+  /* overflow: hidden; Removed to let images fly off-screen */
   --cycle-shift: 140%;
 }
 
@@ -456,6 +456,18 @@ li {
   grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
   align-items: start;
   gap: clamp(2rem, 6vw, 7rem);
+  pointer-events: none; /* Let clicks pass through if needed, but mainly to avoid blocking */
+}
+
+/* Enable pointer events on active/interactive elements if necessary */
+.device-cycle-item.is-active {
+  pointer-events: auto;
+  z-index: 2;
+}
+
+.device-cycle-item.is-exit-up,
+.device-cycle-item.is-exit-down {
+  z-index: 1;
 }
 
 .device-cycle-text {
@@ -464,7 +476,8 @@ li {
   align-self: start;
   padding-top: 4vh;
   text-align: left;
-  transition: opacity var(--anim-duration) var(--anim-ease);
+  /* Text is "still" - faster fade, no movement */
+  transition: opacity 0.4s ease;
 }
 
 .device-cycle-text h2 {
@@ -492,7 +505,8 @@ li {
   align-items: center;
   align-self: center;
   transform: translateY(var(--enter-shift, var(--cycle-shift)));
-  transition: transform var(--anim-duration) var(--anim-ease);
+  /* Images move */
+  transition: transform 0.8s var(--anim-ease);
 }
 
 .device-cycle-figure img {
@@ -507,25 +521,47 @@ li {
   max-width: min(75vw, 1200px);
 }
 
+/* Animation Classes */
+.device-cycle-item.enter-from-top .device-cycle-figure {
+  transform: translateY(-140%);
+}
+
+.device-cycle-item.enter-from-bottom .device-cycle-figure {
+  transform: translateY(140%);
+}
+
+/* Text Visibility */
 .device-cycle-item.is-active .device-cycle-text {
   opacity: 1;
 }
 
 .device-cycle-item.is-active .device-cycle-figure {
-  transform: translateY(0);
+  transform: translateY(0) !important; /* Force to 0 when active */
 }
 
+/* Exit States */
 .device-cycle-item.is-exit-up .device-cycle-figure {
-  transform: translateY(calc(-1 * var(--cycle-shift)));
+  transform: translateY(-140%);
 }
 
 .device-cycle-item.is-exit-down .device-cycle-figure {
-  transform: translateY(var(--cycle-shift));
+  transform: translateY(140%);
 }
 
+/* Base Hidden State (Fallback) */
 .device-cycle-item.is-hidden .device-cycle-figure {
-  transform: translateY(var(--enter-shift, var(--cycle-shift)));
+  /* Default to sitting below if no specific direction set, though JS should set one */
+  transform: translateY(140%); 
   transition: none;
+}
+
+/* If we have a specific entry direction, respect it while hidden (start pos) */
+.device-cycle-item.is-hidden.enter-from-top .device-cycle-figure {
+  transform: translateY(-140%);
+}
+
+.device-cycle-item.is-hidden.enter-from-bottom .device-cycle-figure {
+  transform: translateY(140%);
 }
 
 .device-cycle-item.is-hidden .device-cycle-text {
@@ -1341,3 +1377,104 @@ li {
   }
 }
 
+
+/* IMPACT QUOTE SLIDE */
+.impact-quote {
+  font-family: var(--font-heading);
+  font-weight: 300; /* Light/Thin font per request */
+  font-size: 4vw;
+  line-height: 1.1;
+  text-align: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  color: var(--text-heading);
+  letter-spacing: -0.02em;
+}
+
+/* Ensure centered content helper works properly */
+.centered-content {
+  align-items: center;
+  text-align: center;
+}
+
+/* DELIVERY / ROADMAP TABLE SLIDE */
+.delivery-slide .slide-content {
+  max-width: 1400px; /* Wider for tables */
+}
+
+.table-header {
+  margin-bottom: 2rem;
+}
+
+.table-header h2 {
+  margin-bottom: 0.5rem;
+}
+
+.table-subtitle {
+  font-size: 1.4rem;
+  color: var(--accent-primary);
+  font-weight: 600;
+  margin-bottom: 2rem;
+  display: block;
+}
+
+.delivery-table-container {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+}
+
+.delivery-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.delivery-table th, 
+.delivery-table td {
+  padding: 1.5rem 2rem;
+  text-align: left;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.delivery-table th {
+  background: var(--bg-panel);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--text-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.delivery-table td {
+  font-size: 1.1rem;
+  vertical-align: top;
+  color: #333;
+  line-height: 1.5;
+}
+
+.delivery-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Specific Columns */
+.col-feature { width: 30%; font-weight: 600; color: var(--text-heading); }
+.col-customer { width: 35%; }
+.col-business { width: 35%; }
+
+.dt-main-text {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 0.4rem;
+  color: var(--text-heading);
+  font-weight: 600;
+}
+
+.dt-sub-text {
+  display: block;
+  font-size: 0.95rem;
+  color: #666;
+  font-weight: 400;
+  margin-top: 0.2rem;
+}

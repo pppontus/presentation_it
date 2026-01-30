@@ -1418,11 +1418,20 @@ li {
   display: block;
 }
 
+.dark .table-subtitle {
+  color: var(--text-on-dark);
+}
+
 .delivery-table-container {
   background: white;
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+}
+
+.dark .delivery-table-container {
+  background: rgba(255, 255, 255, 0.05); /* Subtle glass effect for dark mode */
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .delivery-table {
@@ -1437,6 +1446,11 @@ li {
   border-bottom: 1px solid #f0f0f0;
 }
 
+.dark .delivery-table th,
+.dark .delivery-table td {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
 .delivery-table th {
   background: var(--bg-panel);
   font-family: var(--font-heading);
@@ -1447,11 +1461,20 @@ li {
   letter-spacing: 0.05em;
 }
 
+.dark .delivery-table th {
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--text-on-dark);
+}
+
 .delivery-table td {
   font-size: 1.1rem;
   vertical-align: top;
   color: #333;
   line-height: 1.5;
+}
+
+.dark .delivery-table td {
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .delivery-table tr:last-child td {
@@ -1463,6 +1486,8 @@ li {
 .col-customer { width: 35%; }
 .col-business { width: 35%; }
 
+.dark .col-feature { color: var(--text-on-dark); }
+
 .dt-main-text {
   display: block;
   font-size: 1.2rem;
@@ -1471,10 +1496,18 @@ li {
   font-weight: 600;
 }
 
+.dark .dt-main-text {
+  color: var(--accent-cyan); /* Highlight feature title in cyan on dark */
+}
+
 .dt-sub-text {
   display: block;
   font-size: 0.95rem;
   color: #666;
   font-weight: 400;
   margin-top: 0.2rem;
+}
+
+.dark .dt-sub-text {
+  color: rgba(255, 255, 255, 0.6);
 }

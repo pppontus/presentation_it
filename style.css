@@ -446,7 +446,7 @@ li {
   width: 100%;
   height: clamp(460px, 68vh, 820px);
   /* overflow: hidden; Removed to let images fly off-screen */
-  --cycle-shift: 140%;
+  --cycle-shift: 180%;
 }
 
 .device-cycle-item {
@@ -499,14 +499,18 @@ li {
 }
 
 .device-cycle-figure {
+  --device-shift-x: 0;
   margin: 0;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  align-self: center;
-  transform: translateY(var(--enter-shift, var(--cycle-shift)));
   /* Images move */
   transition: transform 0.8s var(--anim-ease);
+  transform: translateY(var(--cycle-shift)) translateX(var(--device-shift-x));
+}
+
+.device-cycle-figure.laptop {
+  --device-shift-x: 5vw;
 }
 
 .device-cycle-figure img {
@@ -529,17 +533,17 @@ li {
 }
 
 .device-cycle-figure.laptop img {
-  height: clamp(380px, 62vh, 780px);
-  max-width: min(75vw, 1200px);
+  height: clamp(300px, 48vh, 580px);
+  max-width: min(65vw, 1000px);
 }
 
 /* Animation Classes */
 .device-cycle-item.enter-from-top .device-cycle-figure {
-  transform: translateY(-140%);
+  transform: translateY(calc(var(--cycle-shift) * -1)) translateX(var(--device-shift-x));
 }
 
 .device-cycle-item.enter-from-bottom .device-cycle-figure {
-  transform: translateY(140%);
+  transform: translateY(var(--cycle-shift)) translateX(var(--device-shift-x));
 }
 
 /* Text Visibility */
@@ -548,32 +552,31 @@ li {
 }
 
 .device-cycle-item.is-active .device-cycle-figure {
-  transform: translateY(0) !important; /* Force to 0 when active */
+  transform: translateY(0) translateX(var(--device-shift-x)) !important;
 }
 
 /* Exit States */
 .device-cycle-item.is-exit-up .device-cycle-figure {
-  transform: translateY(-140%);
+  transform: translateY(calc(var(--cycle-shift) * -1)) translateX(var(--device-shift-x));
 }
 
 .device-cycle-item.is-exit-down .device-cycle-figure {
-  transform: translateY(140%);
+  transform: translateY(var(--cycle-shift)) translateX(var(--device-shift-x));
 }
 
 /* Base Hidden State (Fallback) */
 .device-cycle-item.is-hidden .device-cycle-figure {
-  /* Default to sitting below if no specific direction set, though JS should set one */
-  transform: translateY(140%); 
+  transform: translateY(var(--cycle-shift)) translateX(var(--device-shift-x)); 
   transition: none;
 }
 
 /* If we have a specific entry direction, respect it while hidden (start pos) */
 .device-cycle-item.is-hidden.enter-from-top .device-cycle-figure {
-  transform: translateY(-140%);
+  transform: translateY(calc(var(--cycle-shift) * -1)) translateX(var(--device-shift-x));
 }
 
 .device-cycle-item.is-hidden.enter-from-bottom .device-cycle-figure {
-  transform: translateY(140%);
+  transform: translateY(var(--cycle-shift)) translateX(var(--device-shift-x));
 }
 
 .device-cycle-item.is-hidden .device-cycle-text {
